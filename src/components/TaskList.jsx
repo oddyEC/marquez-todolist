@@ -12,8 +12,7 @@ const TaskList = props => {
     const updateList = lista.map(item => ({
 
       ...item,
-      description : item.description
-    //   done: item.id === name ? checked : item.done
+       done: item.id === name ? checked : item.done
     }));
     setLista(updateList);
   };
