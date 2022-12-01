@@ -11,7 +11,7 @@ const Container = () => {
     <div>
       <h1>TODO LIST</h1>
       <FormTodo handleAddItem={handleAddItem} />
-      <TaskList />
+      <TaskList lista={lista} setLista={setLista} />
     </div>
   );
 };
