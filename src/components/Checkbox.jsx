@@ -15,7 +15,7 @@ const Checkbox = (props) => {
           defaultChecked={done}
           onChange={onChange}
         />
-        <div className="todo_text">{descripcion}</div>
+        <div className={done ? "todo strike" : "todo"}>{descripcion}</div>
       </label>
     </>
   );
