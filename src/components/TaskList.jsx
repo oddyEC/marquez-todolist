@@ -26,7 +26,7 @@ const TaskList = props => {
       {lista.length ? chk : "No tasks"}
       {lista.length ? (
         <p className="completed-task">
-            2 de 4 tarea(s) completada(s)
+            2 de {lista.length} tarea(s) completada(s)
         </p>
       ) : null}
     </div>
