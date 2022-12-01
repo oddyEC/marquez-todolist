@@ -1,13 +1,21 @@
 import React from "react";
 import { useState } from "react";
 
-const FormTodo = () => {
+const FormTodo = props => {
   const [descripcion, setDescripcion] = useState("");
+  const { handleAddItem } = props;
   const handleSubmit = e => {
     e.preventDefault(); //Evitar que se refresque la pagina
+    handleAddItem({
+        done: false,
+        id: (+new Date()).toString(),
+        descripcion
+    })
     console.log(descripcion);
     setDescripcion("")
   }
+  
+  
   return (
     <form onSubmit={handleSubmit}>
       <div className="todo-list">
