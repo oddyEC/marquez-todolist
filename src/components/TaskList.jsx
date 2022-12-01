@@ -1,28 +1,32 @@
 import React from "react";
 import Checkbox from "./Checkbox";
 
-const TaskList = (props) => {
+const TaskList = props => {
+
   const { lista, setLista } = props;
-  const onChangeStatus = (e) => {
-    const { nombre, checked } = e.target;
-    const updateList = lista.map((item) => ({
+
+  const onChangeStatus = e => {
+    const { name, checked } = e.target;
+
+
+    const updateList = lista.map(item => ({
       ...item,
-      done: item.id === nombre ? checked : item.done,
+      done: item.id === name ? checked : item.done
     }));
     setLista(updateList);
   };
-  const checklist = lista.map((item) => (
-    <Checkbox key={item.id} data={item} onChangeStatus={onChangeStatus} />
+
+  const chk = lista.map(item => (
+    <Checkbox key={item.id} data={item} onChange={onChangeStatus} />
   ));
   return (
     <div className="todo-list">
-      {lista.lenght ? checklist : "Lista vacía"}
-      {lista.lenght ? (
-        <p>
-          `${} de ${} completada(s)`
+      {lista.length ? chk : "No tasks"}
+      {lista.length ? (
+        <p className="completed-task">
+            2 de 4 tarea(s) completada(s)
         </p>
       ) : null}
-      <Checkbox />
     </div>
   );
 };
